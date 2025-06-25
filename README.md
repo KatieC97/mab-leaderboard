@@ -1,59 +1,102 @@
-# MabLeaderboardTask
+# 🧠 Scrabble Leaderboard – MAB Coding Task
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.3.
+A fully responsive, accessible leaderboard built with **Angular 17**, **Angular Material**, and **SCSS**. The component toggles between light and dark themes, adjusts column layout based on screen size (mobile vs desktop), and fetches mock data from a REST API using **HttpClient**.
 
-## Development server
+---
 
-To start a local development server, run:
+## 📸 Screenshots
+
+| View                                          | Mode                         | Device  |
+| --------------------------------------------- | ---------------------------- | ------- |
+| ![](src/assets/screenshots/figma-light.png)   | Figma Wireframe – Light Mode | Desktop |
+| ![](src/assets/screenshots/figma-dark.png)    | Figma Wireframe – Dark Mode  | Desktop |
+| ![](src/assets/screenshots/desktop-light.png) | Live Component – Light Mode  | Desktop |
+| ![](src/assets/screenshots/desktop-dark.png)  | Live Component – Dark Mode   | Desktop |
+| ![](src/assets/screenshots/mobile-light.png)  | Live Component – Light Mode  | Mobile  |
+| ![](src/assets/screenshots/mobile-dark.png)   | Live Component – Dark Mode   | Mobile  |
+
+---
+
+## 🛠️ Tech Stack
+
+- **Angular 17**
+- **Angular Material** (MatTable, Theming)
+- **SCSS**
+- **CDK BreakpointObserver**
+- **RxJS**
+- **Lighthouse**
+- **Beeceptor (Mock API)**
+
+---
+
+## ⚙️ Features
+
+- 📊 Displays leaderboard table with: rank, name, average score, games played
+- 🥇 Emoji medals for top 3 players
+- 🎨 Light/Dark mode toggle with accessible contrast
+- 📱 Responsive layout using Angular CDK breakpoints
+- 🧪 Fully unit tested with Jasmine/Karma
+- ♿️ Lighthouse 100 score for Accessibility
+- 🧠 ARIA labels and caption for screen reader support
+- 📁 Clean folder structure with standalone component setup
+
+---
+
+## 🚀 Getting Started
 
 ```bash
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+To run unit tests:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 🔗 API
 
-```bash
-ng e2e
-```
+- Data fetched from: `https://mp4dc70630401865409.free.beeceptor.com/data`
+- Matches `scrabblePlayerId` against `players.json` to render full leaderboard
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## ♿ Accessibility
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- ✅ ARIA - `aria-label` for context
+- ✅ Visually hidden `<caption>` for screen reader context
+- ✅ Keyboard-accessible toggle button with `aria-label`
+- ✅ Responsive text, spacing, and touch targets
+- ✅ Font uses `rem` units instead of `px`
+- ✅ Contrast checked for dark/light theme combinations
+
+---
+
+## 🧪 Testing
+
+- ✅ 100% of component functionality unit tested:
+- Component renders
+- Data fetch on init
+- Correct layout on mobile/desktop
+- Toggle theme button
+- DOM rendering tests (header, values, fallback conditions)
+
+---
+
+## 💬 Notes
+
+- Final Lighthouse scores:
+- **Accessibility**: 100
+- **Best Practices**: 100
+- **SEO**: 100
+- **Performance**: ~48–51 (due to development mode, render-blocking fonts, and local server)
+- Fonts preloaded from Google Fonts (`Montserrat`, `Material Icons`)
+
+---
+
+## 👩‍💻 Created by
+
+**Katie Cox** – [GitHub](https://github.com/KatieC97) · Final stage candidate for the Frontend Developer role at Mortgage Advice Bureau

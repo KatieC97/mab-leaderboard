@@ -1,0 +1,66 @@
+<div [ngClass]="isDark ? 'dark' : 'light'">
+  <div class="leaderboard-header">
+    <img class="logo" src="assets/MAB-Logo.svg" alt="MAB Logo" loading="lazy" />
+    <h1>Scrabble Leaderboard</h1>
+  </div>
+
+  <section class="leaderboard-card mat-elevation-z3">
+    <div class="table-wrapper">
+      <table mat-table [dataSource]="dataSource">
+        <caption class="visually-hidden">
+          Leaderboard showing player rank, name, average score and games played
+        </caption>
+        <!-- Rank -->
+        <ng-container matColumnDef="rank">
+          <th mat-header-cell *matHeaderCellDef scope="col">Rank</th>
+          <td
+            mat-cell
+            *matCellDef="let el"
+            [ngClass]="{ 'lower-rank': el.rank >= 4 && el.rank <= 6}"
+          >
+            <ng-container [ngSwitch]="el.rank">
+              <span *ngSwitchCase="1" class="medal">🥇</span>
+              <span *ngSwitchCase="2" class="medal">🥈</span>
+              <span *ngSwitchCase="3" class="medal">🥉</span>
+              <span *ngSwitchDefault>{{ el.rank }} </span>
+            </ng-container>
+          </td>
+        </ng-container>
+
+        <!-- Name -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef scope="col">Name</th>
+          <td mat-cell *matCellDef="let el">{{ el.name }}</td>
+        </ng-container>
+
+        <!-- Avg -->
+        <ng-container matColumnDef="avg">
+          <th mat-header-cell *matHeaderCellDef scope="col">
+            {{ avgScoreLabel }}
+          </th>
+          <td mat-cell *matCellDef="let el">
+            {{ el.avgScore | number:'1.0-0' }}
+          </td>
+        </ng-container>
+
+        <!-- Played -->
+        <ng-container matColumnDef="gamesPlayed">
+          <th mat-header-cell *matHeaderCellDef scope="col">Games Played</th>
+          <td mat-cell *matCellDef="let el">{{ el.gamesPlayed }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedCols"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedCols;"></tr>
+      </table>
+    </div>
+    <div class="theme-toggle-wrapper">
+      <button
+        class="toggle-theme"
+        (click)="isDark = !isDark"
+        aria-label="Dark mode toggle"
+      >
+        {{ isDark ? ' Light Mode' : ' Dark Mode' }}
+      </button>
+    </div>
+  </section>
+</div>
