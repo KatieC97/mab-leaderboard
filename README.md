@@ -4,6 +4,10 @@ A fully responsive, accessible leaderboard built with **Angular 17**, **Angular 
 
 ---
 
+Live Demo - https://katiec97.github.io/mab-leaderboard/ 
+
+---
+
 ## 📸 Screenshots
 
 | View                                          | Mode                         | Device  |
